@@ -47,8 +47,6 @@ function titleCase(sentence) {
     return newStr
 }
 
-console.log(arrToStr(['h','e','j']))
-
 /**
  * This function returns the sum of a range of numbers in an array.
  *

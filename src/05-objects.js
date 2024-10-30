@@ -10,7 +10,7 @@
 function createPersonObject() {
     const obj = {
         'name':'',
-        'age': undefined,
+        'age': Number(''),
         'city': ''
     }
     return obj
@@ -92,10 +92,28 @@ const users = [
     { email: 'alice@example.com' },
 ];
 
-const obj = ['hello','yes']
+console.log(users[1].email)
 
 function checkForDuplicateEmails(users) {
-    const emailArr = []
+    let hasDuplicate = false
+    for (let i = 0; i < users.length; i++) {
+        let count = 0
+        for (let j = 0; j < users.length; j++) {
+            if (users[i].email === users[j].email) {
+            count++
+                if(count >= 2) {
+                    hasDuplicate = true
+                }
+            }
+        }
+    }
+    return hasDuplicate
+}
+
+checkForDuplicateEmails(users)
+
+/*
+  const emailArr = []
     let hasDuplicates = false
     for (elm of users) {
         emailArr.push(elm.email)
@@ -110,4 +128,4 @@ function checkForDuplicateEmails(users) {
         }
     }
     return hasDuplicates
-}
+ */
