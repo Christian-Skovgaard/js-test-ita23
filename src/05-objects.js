@@ -8,7 +8,12 @@
  * // person might be { name: 'John Doe', age: 30, city: 'New York' }
  */
 function createPersonObject() {
-
+    const obj = {
+        'name':'',
+        'age': undefined,
+        'city': ''
+    }
+    return obj
 }
 
 
@@ -23,7 +28,7 @@ function createPersonObject() {
  * // personName will be 'John Doe'
  */
 function getPersonName(person) {
-
+    return person.name
 }
 
 
@@ -40,7 +45,11 @@ function getPersonName(person) {
  *
  */
 function findPersonByName(persons, name) {
-
+    for (person of persons) {
+        if (person.name == name) {
+            return person
+        }
+    }
 }
 
 
@@ -55,7 +64,11 @@ function findPersonByName(persons, name) {
  * // totalAge will be 55
  */
 function getTotalAge(persons) {
-
+    ageSum = 0
+    for (person of persons) {
+        ageSum = ageSum + person.age
+    }
+    return ageSum
 }
 
 
@@ -73,6 +86,28 @@ function getTotalAge(persons) {
  * ];
  * const hasDuplicates = checkForDuplicateEmails(users); // true
  */
-function checkForDuplicateEmails(users) {
+const users = [
+    { email: 'alice@example.com' },
+    { email: 'bob@example.com' },
+    { email: 'alice@example.com' },
+];
 
+const obj = ['hello','yes']
+
+function checkForDuplicateEmails(users) {
+    const emailArr = []
+    let hasDuplicates = false
+    for (elm of users) {
+        emailArr.push(elm.email)
+    }
+    for (email1 of emailArr) {
+        let count = 0
+        for (email2 of emailArr) {
+            if (email2 == email1) {
+                count + 1
+            }
+            if (count > 1) {hasDuplicates = true}
+        }
+    }
+    return hasDuplicates
 }
